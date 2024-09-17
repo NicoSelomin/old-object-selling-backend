@@ -1,7 +1,9 @@
 const http = require('http'); //import du package http natif de node
+const app = require('./app');
 
-const server = http.createServer((req, res)=> {
-    res.end("voici mon premier server node");
-});
+app.set('port', process.env.PORT || 3000);
+
+
+const server = http.createServer(app);
 
 server.listen(process.env.PORT || 3000);
